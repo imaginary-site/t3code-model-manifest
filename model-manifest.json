@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-29T12:00:00Z",
+  "updatedAt": "2026-09-30T12:00:00Z",
   "compatibility": [
     {
       "driver": "codex",
@@ -95,7 +95,13 @@
       "gpt-daybreak-blue-latest",
       "gpt-daybreak-red-latest"
     ],
-    "claudeAgent": ["claude-fable-5-1", "claude-opus-5", "claude-sonnet-5"]
+    "claudeAgent": [
+      "claude-fable-5-1",
+      "claude-opus-5-5",
+      "claude-sonnet-5-5",
+      "claude-opus-5",
+      "claude-sonnet-5"
+    ]
   },
   "providers": {
     "claudeAgent": {
@@ -141,6 +147,90 @@
                 ],
                 "currentValue": "high",
                 "promptInjectedValues": ["ultrathink"]
+              },
+              {
+                "id": "contextWindow",
+                "label": "Context window",
+                "type": "select",
+                "options": [
+                  {
+                    "id": "200k",
+                    "label": "200k"
+                  },
+                  {
+                    "id": "1m",
+                    "label": "1M",
+                    "isDefault": true
+                  }
+                ],
+                "currentValue": "1m"
+              }
+            ]
+          },
+          "adapter": {
+            "claudeCode": {
+              "effortMap": {
+                "ultracode": "xhigh",
+                "ultrathink": null
+              },
+              "modelSuffixes": {
+                "contextWindow": {
+                  "1m": "[1m]"
+                }
+              },
+              "contextWindowTokens": {
+                "200k": 200000,
+                "1m": 1000000
+              }
+            }
+          }
+        },
+        "opus-5-5": {
+          "capabilities": {
+            "optionDescriptors": [
+              {
+                "id": "effort",
+                "label": "Reasoning",
+                "type": "select",
+                "options": [
+                  {
+                    "id": "low",
+                    "label": "Low"
+                  },
+                  {
+                    "id": "medium",
+                    "label": "Medium",
+                    "isDefault": true
+                  },
+                  {
+                    "id": "high",
+                    "label": "High"
+                  },
+                  {
+                    "id": "xhigh",
+                    "label": "Extra high"
+                  },
+                  {
+                    "id": "max",
+                    "label": "Max"
+                  },
+                  {
+                    "id": "ultracode",
+                    "label": "Ultracode",
+                    "description": "xhigh effort plus multi-agent workflow orchestration"
+                  },
+                  {
+                    "id": "ultrathink",
+                    "label": "Ultrathink"
+                  }
+                ],
+                "currentValue": "medium",
+                "promptInjectedValues": ["ultrathink"]
+              },
+              {
+                "id": "fastMode",
+                "label": "Fast mode",
+                "type": "boolean"
               },
               {
                 "id": "contextWindow",
@@ -642,6 +732,30 @@
         }
       },
       "models": [
+        {
+          "slug": "claude-opus-5-5",
+          "name": "Claude Opus 5.5",
+          "aliases": ["opus-5.5", "claude-opus-5.5"],
+          "status": "current",
+          "profile": "opus-5-5",
+          "adapter": {
+            "claudeCode": {
+              "minVersion": "2.1.280"
+            }
+          }
+        },
+        {
+          "slug": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5",
+          "aliases": ["sonnet-5.5", "claude-sonnet-5.5"],
+          "status": "current",
+          "profile": "sonnet-5",
+          "adapter": {
+            "claudeCode": {
+              "minVersion": "2.1.284"
+            }
+          }
+        },
         {
           "slug": "claude-fable-5-1",
           "name": "Claude Fable 5.1",
