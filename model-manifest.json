@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-02T14:00:00Z",
+  "updatedAt": "2026-10-03T08:00:00Z",
   "compatibility": [
     {
       "driver": "codex",
@@ -153,6 +153,7 @@
   },
   "providers": {
     "claudeAgent": {
+      "defaults": { "chat": "claude-fable-5-1" },
       "profiles": {
         "fable-5": {
           "capabilities": {
